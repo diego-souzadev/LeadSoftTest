@@ -12,7 +12,7 @@ function loadLoginPage() {
                 <h1>Bem vindo(a)!</h1>
                 <input type="email" id="email" placeholder="E-mail: exemplo@leadsoft.inf.br" required>                
                 <input type="password" id="password" placeholder="Senha" required>                
-                <button class="btn-password" id="btn-password"><img src="../img/hide.png" name="Ocultar senha"><button>              
+                <button class="btn-password" id="btn-password"><img src="../img/hide.png" name="Ocultar senha"></button>              
                 <button id="btnLogin" class="btnLogin">Login</button>                      
             </div>`
     

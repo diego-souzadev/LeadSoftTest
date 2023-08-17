@@ -10,18 +10,35 @@ function initProcessLogin() {
     }
 
     const btnLogin = document.querySelector('#btnLogin');
-    ['click', 'touchstart'].forEach((itemEvent) => {
-        btnLogin.addEventListener(itemEvent, loginRequestAuth);          
+    ['click', 'touchstart', 'blur'].forEach((itemEvent) => {
+        if (itemEvent != 'blur') {
+            btnLogin.addEventListener(itemEvent, loginRequestAuth);
+        }
+
+        btnLogin.addEventListener('keydown', (event) => {
+            event.preventDefault();
+
+            if (event.key === 'Tab') {
+                document.querySelector('#email').focus();
+                return;
+            }
+
+            if(event.key === "Enter"){          
+                loginRequestAuth();            
+            }                
+        })
+                          
     })    
     
     function handleSubmit(event) {
-        event.preventDefault();
-        if(event.key === "Enter"){
+        event.preventDefault();                
+
+        if(event.key === "Enter"){          
             loginRequestAuth();            
-        }
+        }      
     }
 
-    document.querySelector('#password').addEventListener('change', handleSubmit);   
+    document.querySelector('#password').addEventListener('keyup', handleSubmit);   
 }
 
 async function loginRequestAuth() {        
